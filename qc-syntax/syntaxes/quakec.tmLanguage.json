@@ -1,0 +1,228 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "QuakeC",
+  "scopeName": "source.quakec",
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#directive"
+    },
+    {
+      "include": "#command"
+    },
+    {
+      "include": "#toplevel-declaration"
+    }
+  ],
+  "repository": {
+    "toplevel-declaration": {
+      "patterns": [
+        {
+          "include": "#type-declaration-keyword"
+        },
+        {
+          "include": "#type"
+        },
+        {
+          "include": "#modifier"
+        },
+        {
+          "include": "#code-block"
+        },
+        {
+          "include": "#expression"
+        }
+      ]
+    },
+    "code-block": {
+      "begin": "{",
+      "end": "}",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#directive"
+        },
+        {
+          "include": "#statement"
+        }
+      ]
+    },
+    "statement": {
+      "patterns": [
+        {
+          "include": "#modifier"
+        },
+        {
+          "include": "#type"
+        },
+        {
+          "include": "#ctl-keyword"
+        },
+        {
+          "patterns": [
+            {
+              "match": "\\bprior\\b",
+              "name": "support.function"
+            }
+          ]
+        },
+        {
+          "include": "#expression"
+        }
+      ]
+    },
+    "type-declaration-keyword": {
+      "name": "storage.type.quakec",
+      "match": "\\b(struct|class|enum|union|typedef)\\b"
+    },
+    "expression": {
+      "patterns": [
+        {
+          "include": "#literal"
+        },
+        {
+          "include": "#operator"
+        },
+        {
+          "include": "#code-block"
+        }
+      ]
+    },
+    "ctl-keyword": {
+      "name": "keyword.control.quakec",
+      "match": "\\b(if|else|while|do|for|break|continue|goto|return|switch|case|default)\\b"
+    },
+    "command": {
+      "match": "\\$(cd|origin|base|skin|frame|scale)\\b",
+      "name": "keyword.other.command.quakec"
+    },
+    "type": {
+      "patterns": [
+        {
+          "include": "#primitive"
+        }
+      ]
+    },
+    "primitive": {
+      "match": "\\b(float|int|string|vector|entity|void|__variant)\\b",
+      "name": "storage.type.quakec"
+    },
+    "modifier": {
+      "name": "storage.modifier.quakec",
+      "match": "\\b(local|const|static|__wrap)\\b"
+    },
+    "operator": {
+      "patterns": [
+        {
+          "name": "keyword.operator.symbole.quakec",
+          "match": "(>>=|<<=|&&=|\\|\\|=)"
+        },
+        {
+          "name": "keyword.operator.symbole.quakec",
+          "match": "(><|>=|<=|==|!=|&&|\\|\\|~=|&=|\\|=|\\^=|\\*=|/=|\\+=|-=|\\+\\+|--)"
+        },
+        {
+          "name": "keyword.operator.symbole.quakec",
+          "match": "(\\.|!|~|&|\\||\\^|\\*|%|/|\\+|-|>|<|=|\\?|:)"
+        },
+        {
+          "name": "keyword.operator.new.quakec",
+          "match": "\\bnew\\b"
+        }
+      ]
+    },
+    "literal": {
+      "patterns": [
+        {
+          "include": "#raw-string"
+        },
+        {
+          "include": "#string-literal"
+        },
+        {
+          "include": "#vector-literal"
+        },
+        {
+          "include": "#builtin-literal"
+        },
+        {
+          "include": "#number-literal"
+        }
+      ]
+    },
+    "string-literal": {
+      "name": "string.quoted.double.quakec",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.quakec",
+          "match": "\\\\([\\\\\"'nrts0-9\\(=\\)<\\->]|x[0-9a-fA-F][0-9a-fA-F])"
+        }
+      ]
+    },
+    "raw-string": {
+      "name": "string.quoted.double",
+      "begin": "R\"(\\S*)\\(",
+      "end": "\\)\\1\""
+    },
+    "vector-literal": {
+      "name": "string.quoted.single.quakec",
+      "begin": "'",
+      "end": "'"
+    },
+    "builtin-literal": {
+      "name": "constant.other.builtin.quakec",
+      "match": "#[0-9]+\\b"
+    },
+    "number-literal": {
+      "patterns": [
+        {
+          "name": "constant.numeric.quakec",
+          "match": "\\b0x[0-9a-fA-F]+\\b"
+        },
+        {
+          "name": "constant.numeric.quakec",
+          "match": "-?\\b[0-9]+\\.[0-9]+([eE]-?[0-9]+)?\\b"
+        },
+        {
+          "match": "-?\\b[0-9]+(\\.|i)?",
+          "name": "constant.numeric.quakec"
+        }
+      ]
+    },
+    "comment": {
+      "patterns": [
+        {
+          "include": "#block-comment"
+        },
+        {
+          "include": "#line-comment"
+        }
+      ]
+    },
+    "block-comment": {
+      "name": "comment.block.quakec",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+    "line-comment": {
+      "name": "comment.line.double-slash.quakec",
+      "begin": "//",
+      "end": "$"
+    },
+    "directive": {
+      "patterns": [
+        {
+          "name": "meta.preprocessor",
+          "begin": "^\\s*#\\s*(if|ifdef|ifndef|elif|endif|else|define|undef|pragma|include|append|error|message)\\b",
+          "end": "([^\\\\]|^)\r?\n"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "quakec-syntax",
+  "displayName": "QuakeC Syntax",
+  "description": "QuakeC syntax highlighting",
+  "version": "0.1.1",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "quakec",
+        "aliases": [
+          "QuakeC",
+          "quakec"
+        ],
+        "extensions": [
+          ".qc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "quakec",
+        "scopeName": "source.quakec",
+        "path": "./syntaxes/quakec.tmLanguage.json"
+      }
+    ]
+  },
+  "dependencies": {
+    "vsce": "^2.15.0"
+  }
+}

@@ -1,0 +1,4 @@
+# Set all files to automatic conversion between LF/CRLF
+# In case binary files are added, configure to match text files only
+* text=auto
+
