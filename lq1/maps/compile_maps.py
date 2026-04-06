@@ -11,9 +11,9 @@ import sys
 import shutil
 
 # Map compiler paths
-LQ_BSP_PATH = "qbsp"
-LQ_VIS_PATH = "vis"
-LQ_LIG_PATH = "light"
+LQ_BSP_PATH = "/home/user/repos/Project-Quack-Game/ericw-tools/bin/qbsp"
+LQ_VIS_PATH = "/home/user/repos/Project-Quack-Game/ericw-tools/bin/vis"
+LQ_LIG_PATH = "/home/user/repos/Project-Quack-Game/ericw-tools/bin/light"
 
 # Location of per-map compilation argument paths
 LQ_MAP_CON_PATH = "src/-buildconfigs-"

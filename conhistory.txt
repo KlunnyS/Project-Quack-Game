@@ -1,0 +1,16 @@
+maps 
+maps š
+maps 
+map lqdm1
+map dm/lqdm1
+maps dm
+maps *
+maps dm/*
+maps dm
+/map lqdm1
+clear
+maxplayers 8
+/changelevel 
+/changelevel lqdm1
+exit
+quit
