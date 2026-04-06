@@ -24,7 +24,7 @@ def make():
     ]
     for wad in wads_list:
         filepaths = glob.glob(f'{wad}/*')
-        command = ['qpakman']
+        command = ['../qpakman/qpakman']
         command.extend(filepaths)
         command.extend(['-o', f'{wad}.wad'])
         print(f'Compiling {wad}.wad...')

@@ -1,0 +1,50 @@
+---- light / ericw-tools v0.18.1 ----
+Raytracing backend: Embree
+running with 24 threads
+LoadBSPFile: 'misc/start_e0.bsp'
+BSP is version 29
+Loaded extended texinfo flags from misc/start_e0.texinfo
+--- LoadEntities ---
+256 entities read, 155 are lights.
+--- OptionsSummary ---
+    "dirt" was set to "1" from commandline
+    "minlight_dirt" was set to "1" from map
+    "bounce" was set to "1" from commandline
+    "sunlight_dirt" was set to "1.000000" from map
+    "sunlight2_dirt" was set to "1.000000" from map
+Embree_TraceInit: Embree version: 2.15.0
+Embree_TraceInit:
+	0 sky faces
+	2597 solid faces
+	0 filtered faces
+	0 shadow-casting skip faces
+SetupLights: 155 initial lights
+Creating surface lights for texture "*slime_soul" from template at (520 1816 -40)
+Creating surface lights for texture "rw33_lit" from template at (-56 2104 24)
+Creating surface lights for texture "+0term128" from template at (-16 1928 112)
+Creating surface lights for texture "*blood1" from template at (104 1784 -168)
+SetupLights: 209 after surface lights
+SetupLights: 209 after jittering
+--- EstimateLightVisibility ---
+0....1....2....3....4....5....6....7....8....9....
+Final count: 209 lights 0 suns in use.
+Colored light entities/settings detected: .lit output enabled.
+--- SetupDirt ---
+       48 dirtmap vectors
+--- LightWorld ---
+--- MakeTextureColors ---
+--- MakeBounceLights ---
+0....1....2....3....4....5....6....7....8....9....
+0....1....2....3....4....5....6....7....8....9....
+Lighting Completed.
+
+lightdatasize: 111528
+Writing misc/start_e0.lit
+0 switchable light styles (32 max)
+Writing misc/start_e0.bsp as BSP version 29
+0.376 seconds elapsed
+
+stats:
+1.709089 lights tested, 1.380356 hits per sample point
+46.074565 bounce lights tested, 30.348242 hits per sample point
+0 empty lightmaps

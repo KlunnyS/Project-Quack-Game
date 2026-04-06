@@ -8,9 +8,9 @@
 #
 
 # Map compiler paths
-LQ_BSP_PATH="qbsp"
-LQ_VIS_PATH="vis"
-LQ_LIG_PATH="light"
+LQ_BSP_PATH="/home/user/repos/Project-Quack-Game/ericw-tools/bin/qbsp"
+LQ_VIS_PATH="/home/user/repos/Project-Quack-Game/ericw-tools/bin/vis"
+LQ_LIG_PATH="/home/user/repos/Project-Quack-Game/ericw-tools/bin/light"
 
 # Location of per-map compilation argument paths
 LQ_MAP_CON_PATH="./-buildconfigs-"
@@ -82,7 +82,7 @@ function command_make {
     for f in $(find . -maxdepth 2 -name '*.map' ) ; do
         # Clean up the string a bit
         map_name=${f:2:-4}
-        
+
         # if a specific map is to be compiled, skip all others
 	if ! test -z "$1"
 	then
@@ -96,9 +96,9 @@ function command_make {
         setup_compile_args;
         # Perform build operation, silence non-errors
         echo "- $map_name"
-        $LQ_BSP_PATH $LQ_BSP_FLAGS $map_name.map | grep -E -i "WARNING |Leak"
-        $LQ_VIS_PATH $LQ_VIS_FLAGS $map_name.map | grep -E -i "WARNING |Leak"
-        $LQ_LIG_PATH $LQ_LIG_FLAGS $map_name.map | grep -E -i "WARNING |Leak"
+        "$LQ_BSP_PATH" $LQ_BSP_FLAGS $map_name.map | grep -E -i "WARNING |Leak"
+        "$LQ_VIS_PATH" $LQ_VIS_FLAGS $map_name.map | grep -E -i "WARNING |Leak"
+        "$LQ_LIG_PATH" $LQ_LIG_FLAGS $map_name.map | grep -E -i "WARNING |Leak"
         # Don't calculate vis or build lightmaps if its a bmodel
         #if [ ! $LQ_IS_BMODEL ] ; then
             #$LQ_VIS_PATH $LQ_VIS_FLAGS $map_name.map | grep -E -i "WARNING|Leak" 

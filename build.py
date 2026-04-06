@@ -106,7 +106,7 @@ def build_release(name, data):
     if pak0_exists:
         os.chdir('working/pak0')
         filepaths = glob.glob('*')
-        command = ['qpakman']
+        command = ['qpakman/qpakman']
         command.extend(filepaths)
         command.extend(['-o', '../pak0.pak'])
         print("Creating pak0.pak...")
@@ -128,7 +128,7 @@ def build_release(name, data):
     if pak1_exists:
         os.chdir('working/pak1')
         filepaths = glob.glob('*')
-        command = ['qpakman']
+        command = ['qpakman/qpakman']
         command.extend(filepaths)
         command.extend(['-o', '../pak1.pak'])
         print('Creating pak1.pak...')
@@ -174,7 +174,7 @@ def compile_progs():
     try:
         print("Compiling progs.dat...")
         subprocess.run(
-            ["fteqcc", "qcsrc/progs.src", "-D__LIBREQUAKE__", "-O3"],
+            ["fteqcc_linux64/fteqcc64", "qcsrc/progs.src", "-D__LIBREQUAKE__", "-O3"],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             check=True,  # Fail on non-zero exit code
@@ -182,7 +182,7 @@ def compile_progs():
 
         print("Compiling qwprogs.dat...")
         subprocess.run(
-            ["fteqcc", "qcsrc/progs.src", "-D__LIBREQUAKE__", "-D__QW__", "-O3"],
+            ["fteqcc_linux64/fteqcc64", "qcsrc/progs.src", "-D__LIBREQUAKE__", "-D__QW__", "-O3"],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             check=True,  # Fail on non-zero exit code
